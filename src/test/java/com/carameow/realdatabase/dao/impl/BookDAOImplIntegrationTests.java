@@ -22,8 +22,8 @@ import com.carameow.realdatabase.domain.Book;
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class BookDAOImplIntegrationTests {
 
-    private AuthorDAO authorDAO;
-    private BookDAOImpl underTest;
+    private final AuthorDAO authorDAO;
+    private final BookDAOImpl underTest;
 
     @Autowired
     public BookDAOImplIntegrationTests(AuthorDAO authorDAO, BookDAOImpl underTest) {
@@ -104,6 +104,8 @@ public class BookDAOImplIntegrationTests {
         underTest.update(bookC.getIsbn(), bookC);
 
         Optional<Book> result = underTest.findOne(bookC.getIsbn());
+
+        assertThat(result).isPresent();
         assertThat(result.get()).isEqualTo(bookC);
     }
 

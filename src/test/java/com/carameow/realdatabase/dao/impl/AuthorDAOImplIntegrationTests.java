@@ -20,7 +20,7 @@ import com.carameow.realdatabase.domain.Author;
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class AuthorDAOImplIntegrationTests {
 
-    private AuthorDAOImpl underTest;
+    private final AuthorDAOImpl underTest;
 
     @Autowired
     public AuthorDAOImplIntegrationTests(AuthorDAOImpl underTest) {
@@ -63,6 +63,7 @@ public class AuthorDAOImplIntegrationTests {
 
         Optional<Author> result = underTest.findOne(authorA.getId());
 
+        assertThat(result).isPresent();
         assertThat(result.get()).isEqualTo(authorA);
     }
 
