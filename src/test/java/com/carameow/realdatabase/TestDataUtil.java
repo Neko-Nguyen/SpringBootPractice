@@ -1,52 +1,69 @@
 package com.carameow.realdatabase;
 
-import com.carameow.realdatabase.domain.Author;
-import com.carameow.realdatabase.domain.Book;
+import com.carameow.realdatabase.domain.dto.AuthorDto;
+import com.carameow.realdatabase.domain.dto.BookDto;
+import com.carameow.realdatabase.domain.entities.AuthorEntity;
+import com.carameow.realdatabase.domain.entities.BookEntity;
 
 public final class TestDataUtil {
     private TestDataUtil() {}
 
-    public static Author createTestAuthorA() {
-        return Author.builder()
+    public static AuthorEntity createTestAuthorEntityA() {
+        return AuthorEntity.builder()
                 .name("JK Rolling")
                 .age(50)
                 .build();
     }
 
-    public static Author createTestAuthorB() {
-        return Author.builder()
+    public static AuthorEntity createTestAuthorEntityB() {
+        return AuthorEntity.builder()
                 .name("George R. R. Martin")
                 .age(72)
                 .build();
     }
 
-    public static Author createTestAuthorC() {
-        return Author.builder()
+    public static AuthorEntity createTestAuthorEntityC() {
+        return AuthorEntity.builder()
                 .name("J. R. R. Tolkien")
                 .age(81)
                 .build();
     }
 
-    public static Book createTestBookA(final Author author) {
-        return Book.builder()
+    public static AuthorDto createTestAuthorDtoA() {
+        return AuthorDto.builder()
+                .name("JK Rolling")
+                .age(50)
+                .build();
+    }
+
+    public static BookEntity createTestBookEntityA(final AuthorEntity author) {
+        return BookEntity.builder()
                 .isbn("978-3-16-148410-0")
                 .title("Harry Potter")
                 .author(author)
                 .build();
     }
 
-    public static Book createTestBookB(final Author author) {
-        return Book.builder()
+    public static BookEntity createTestBookEntityB(final AuthorEntity author) {
+        return BookEntity.builder()
                 .isbn("978-0-553-10354-0")
                 .title("A Game of Thrones")
                 .author(author)
                 .build();
     }
 
-    public static Book createTestBookC(final Author author) {
-        return Book.builder()
+    public static BookEntity createTestBookEntityC(final AuthorEntity author) {
+        return BookEntity.builder()
                 .isbn("978-0-618-00222-8")
                 .title("The Hobbit")
+                .author(author)
+                .build();
+    }
+
+    public static BookDto createTestBookDtoA(final AuthorDto author) {
+        return BookDto.builder()
+                .isbn("978-3-16-148410-0")
+                .title("Harry Potter")
                 .author(author)
                 .build();
     }
