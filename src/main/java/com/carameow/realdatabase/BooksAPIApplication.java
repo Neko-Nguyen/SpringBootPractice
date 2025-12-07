@@ -12,17 +12,17 @@ import lombok.extern.java.Log;
 
 @SpringBootApplication
 @Log
-public class RealdatabaseApplication implements CommandLineRunner {
+public class BooksAPIApplication implements CommandLineRunner {
 
 	private final DataSource dataSource;
 
-	public RealdatabaseApplication(final DataSource dataSource) {
+	public BooksAPIApplication(final DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 
 	public static void main(String[] args) {
 		System.setProperty("user.timezone", "Asia/Ho_Chi_Minh");
-		SpringApplication.run(RealdatabaseApplication.class, args);
+		SpringApplication.run(BooksAPIApplication.class, args);
 	}
 
 	@Override
