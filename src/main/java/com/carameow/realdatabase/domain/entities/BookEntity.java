@@ -1,4 +1,4 @@
-package com.carameow.realdatabase.domain;
+package com.carameow.realdatabase.domain.entities;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "book")
-public class Book {
+@Table(name = "books")
+public class BookEntity {
 
     @Id
     private String isbn;
@@ -26,6 +26,6 @@ public class Book {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "author_id")
-    private Author author;
+    private AuthorEntity author;
 
 }
